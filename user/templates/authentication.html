@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  
+
+    <title>MASJID</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user_reg.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" /> {% endcomment %}
+</head>
+<body>
+     
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav_logo"><h2>Masjid</h2></a>
+
+        <ul>
+          <li class="nav_items">
+            <a href="authentication.html" class="nav_link">Home</a>
+            <a href="#" class="nav_link">Timing</a>
+            <a href="#" class="nav_link">Services</a>
+            <a href="#" class="nav_link">About</a>
+          </li>
+        </ul>
+
+        <button class="button" id="form-open">Login</button>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="home">
+      <div class="form_container">
+        <i class="uil uil-times form_close"></i>
+        <!-- Login From -->
+        <div class="form login_form">
+            <form method="post">
+                {% csrf_token %}
+                {{ login_form.non_field_errors }}
+               
+                <h2>Login</h2>
+                
+                <div class="input_box">
+                    {{ login_form.email.label_tag }}
+                    {{ login_form.email }}
+                    {{ login_form.email.errors }}
+                </div>
+        
+                <div class="input_box">
+                    {{ login_form.password.label_tag }}
+                    {{ login_form.password }}
+                    {{ login_form.password.errors }}
+                </div>
+        
+                <button class="button" name="login" type="submit">Login Now</button>
+                <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+            </form>
+        </div>
+
+        <!-- Signup From -->
+        <div class="form signup_form">
+            <form method="post">
+                {% csrf_token %}
+                {{ registration_form.non_field_errors }}
+                <h2>Signup</h2>
+                
+                <div class="input_box">
+                    {{ registration_form.name.label_tag }}
+                    {{ registration_form.name }}
+                    {{ registration_form.name.errors }}
+                </div>
+        
+                <div class="input_box">
+                    {{ registration_form.email.label_tag }}
+                    {{ registration_form.email }}
+                    {{ registration_form.email.errors }}
+                </div>
+        
+                <div class="input_box">
+                    {{ registration_form.dob.label_tag }}
+                    {{ registration_form.dob }}
+                    {{ registration_form.dob.errors }}
+                </div>
+        
+                <div class="input_box">
+                    {{ registration_form.contact_number.label_tag }}
+                    {{ registration_form.contact_number }}
+                    {{ registration_form.contact_number.errors }}
+                </div>
+        
+                <div class="input_box">
+                    {{ registration_form.password.label_tag }}
+                    {{ registration_form.password }}
+                    {{ registration_form.password.errors }}
+                </div>
+        
+                <button class="button" name="register" type="submit">Signup Now</button>
+            </form>
+        
+           
+            <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+        </div>
+        
+      </div>
+    </section>
+    <script src="{% static 'javascript/userreg.js' %}"></script>
+    
+  </body>
+</html>
